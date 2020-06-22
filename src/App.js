@@ -16,57 +16,83 @@
 //   setTimeout(()=>{titleUpdater("Home")}, 5000);
 //   return (
 //     <div>
-//       hi  
+//       hi
 //     </div>
 //   );
 // };
 
 // export default App;
 
-import React, { useState, useEffect, useRef } from 'react';
+import React, { useState, useEffect, useRef } from "react";
 
 const useInput = (initialValue, validator) => {
   const [value, setValue] = useState(initialValue);
 
   const onChange = (e) => {
-    const { target : { value } } = e;
+    const {
+      target: { value },
+    } = e;
     let willUpdate = true;
-    if(typeof validator === 'function'){
+    if (typeof validator === "function") {
       willUpdate = validator(value);
     }
-    if(willUpdate){
+    if (willUpdate) {
       setValue(value);
     }
-  }
+  };
 
   return { value, onChange };
+};
 
-}
-
-const useTitle = initialTitle => {
+const useTitle = (initialTitle) => {
   const [title, setTitle] = useState(initialTitle);
   const titleUpdate = () => {
     const htmlTitle = document.querySelector("title");
     htmlTitle.innerText = title;
-  }
+  };
   useEffect(titleUpdate, [title]);
 
   return setTitle;
+};
 
-}
+const useClick = (onClick) => {
+  const element = useRef();
+
+  useEffect(() => {
+    if (typeof onClick === "function") {
+      if (element.current) {
+        element.current.addEventListener("click", onClick);
+      }
+    }
+    return () => {
+      //componentWillUnmount 때 발생
+      if (element.current) {
+        element.current.removeEventListener("click", onClick);
+      }
+    };
+  }, []);
+  return element;
+};
 
 const App = () => {
-  const titleUpdater = useTitle('Loading....')
-  setTimeout(()=>{titleUpdater('Home')}, 6000)
+  const titleUpdater = useTitle("Loading....");
+  setTimeout(() => {
+    titleUpdater("Home");
+  }, 6000);
 
-  const maxLen = value=>value.length < 10;
-  const name = useInput('hi~ ', maxLen)
+  const maxLen = (value) => value.length < 10;
+  const name = useInput("hi~ ", maxLen);
 
   const potato = useRef();
-  setTimeout(()=>{potato.current.focus()},5000);
+  setTimeout(() => {
+    potato.current.focus();
+  }, 5000);
+
+  const sayHello = () => console.log("Hello");
+  const title = useClick(sayHello);
   return (
     <div>
-      <h1>hi</h1>
+      <h1 ref={title}>Hi</h1>
       <input ref={potato} {...name} />
     </div>
   );
