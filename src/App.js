@@ -24,6 +24,7 @@
 // export default App;
 
 import React, { useState, useEffect, useRef } from 'react';
+import Child from './Child';
 
 const useInput = (initialValue, validator) => {
   const [value, setValue] = useState(initialValue);
@@ -94,10 +95,21 @@ const App = () => {
     e.target.innerText = 'Hello~';
   };
   const title = useClick(changeText);
+
+  //onCreate 연습
+  const [parentValue] = useState('안녕');
+  const [childValue, setChildValue] = useState('');
+
+  const handleValue = (value) => {
+    setChildValue(value);
+  };
+
   return (
     <div>
       <h1 ref={title}>Hi</h1>
       <input ref={potato} {...name} />
+      <Child value={parentValue} onCreate={handleValue} />
+      {childValue}
     </div>
   );
 };
