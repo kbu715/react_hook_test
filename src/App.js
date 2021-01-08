@@ -61,11 +61,6 @@
 //   const maxLen = (value) => value.length < 10;
 //   const name = useInput('hi~ ', maxLen);
 
-//   const potato = useRef();
-//   setTimeout(() => {
-//     potato.current.focus();
-//   }, 5000);
-
 //   const changeText = (e) => {
 //     e.target.innerText = 'Hello~';
 //   };
@@ -91,9 +86,10 @@
 
 // export default App;
 
-import React from 'react';
+import React, { useRef, useEffect } from 'react';
 import { useTabs } from './hooks/useTabs';
 import { useTitle } from './hooks/useTitle';
+import { useClick } from './hooks/useClick';
 
 const contents = [
   {
@@ -119,7 +115,19 @@ const App = () => {
 
   const titleUpdator = useTitle('Loading....');
 
+  const potato = useRef();
+
   setTimeout(() => titleUpdator('My Homepage'), 5000);
+
+  const sayHello = () => {
+    console.log('helloooo');
+  };
+
+  const title = useClick(sayHello);
+
+  useEffect(() => {
+    setTimeout(() => potato.current.focus(), 5000);
+  }, [potato]);
 
   return (
     <div>
@@ -136,6 +144,10 @@ const App = () => {
       ))}
       <br />
       {currentItem.content}
+      <div>
+        <input ref={potato} placeholder="words" />
+      </div>
+      <h1 ref={title}>hi</h1>
     </div>
   );
 };
