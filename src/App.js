@@ -92,6 +92,7 @@ import TabsApp from './hooks/useTabs';
 import TitleApp from './hooks/useTitle';
 import ConfirmApp from './hooks/useConfirm';
 import PreventLeaveApp from './hooks/usePreventLeave';
+import BeforeLeaveApp from './hooks/useBeforeLeave';
 
 const App = () => {
   return (
@@ -101,6 +102,7 @@ const App = () => {
       <TitleApp />
       <ConfirmApp />
       <PreventLeaveApp />
+      <BeforeLeaveApp />
     </>
   );
 };
