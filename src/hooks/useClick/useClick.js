@@ -15,6 +15,6 @@ export const useClick = (onClick) => {
         element.removeEventListener('click', onClick);
       }
     };
-  }, []);
+  }, [onClick]);
   return ref;
 };

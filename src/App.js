@@ -86,69 +86,22 @@
 
 // export default App;
 
-import React, { useRef, useEffect } from 'react';
-import { useTabs } from './hooks/useTabs';
-import { useTitle } from './hooks/useTitle';
-import { useClick } from './hooks/useClick';
-
-const contents = [
-  {
-    tab: 'Section 1',
-    content: "I'm the content of Section 1",
-  },
-  {
-    tab: 'Section 2',
-    content: "I'm the content of Section 2",
-  },
-  {
-    tab: 'Section 3',
-    content: "I'm the content of Section 3",
-  },
-  {
-    tab: 'Section 4',
-    content: "I'm the content of Section 4",
-  },
-];
+import React from 'react';
+import ClickApp from './hooks/useClick';
+import TabsApp from './hooks/useTabs';
+import TitleApp from './hooks/useTitle';
+import ConfirmApp from './hooks/useConfirm';
+import PreventLeaveApp from './hooks/usePreventLeave';
 
 const App = () => {
-  const { currentItem, changeItem } = useTabs(0, contents);
-
-  const titleUpdator = useTitle('Loading....');
-
-  const potato = useRef();
-
-  setTimeout(() => titleUpdator('My Homepage'), 5000);
-
-  const sayHello = () => {
-    console.log('helloooo');
-  };
-
-  const title = useClick(sayHello);
-
-  useEffect(() => {
-    setTimeout(() => potato.current.focus(), 5000);
-  }, [potato]);
-
   return (
-    <div>
-      <h1>웹 title을 보시오</h1>
-      {contents.map((section, index) => (
-        <button
-          key={index}
-          onClick={() => {
-            changeItem(index);
-          }}
-        >
-          {section.tab}
-        </button>
-      ))}
-      <br />
-      {currentItem.content}
-      <div>
-        <input ref={potato} placeholder="words" />
-      </div>
-      <h1 ref={title}>hi</h1>
-    </div>
+    <>
+      <ClickApp />
+      <TabsApp />
+      <TitleApp />
+      <ConfirmApp />
+      <PreventLeaveApp />
+    </>
   );
 };
 
