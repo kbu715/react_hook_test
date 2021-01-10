@@ -94,6 +94,7 @@ import ConfirmApp from './hooks/useConfirm';
 import PreventLeaveApp from './hooks/usePreventLeave';
 import BeforeLeaveApp from './hooks/useBeforeLeave';
 import FadeInApp from './hooks/useFadeIn';
+import NetworkApp from './hooks/useNetwork';
 
 const App = () => {
   return (
@@ -105,6 +106,7 @@ const App = () => {
       <PreventLeaveApp />
       <BeforeLeaveApp />
       <FadeInApp />
+      <NetworkApp />
     </>
   );
 };
