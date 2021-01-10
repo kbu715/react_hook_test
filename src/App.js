@@ -93,6 +93,7 @@ import TitleApp from './hooks/useTitle';
 import ConfirmApp from './hooks/useConfirm';
 import PreventLeaveApp from './hooks/usePreventLeave';
 import BeforeLeaveApp from './hooks/useBeforeLeave';
+import FadeInApp from './hooks/useFadeIn';
 
 const App = () => {
   return (
@@ -103,6 +104,7 @@ const App = () => {
       <ConfirmApp />
       <PreventLeaveApp />
       <BeforeLeaveApp />
+      <FadeInApp />
     </>
   );
 };
