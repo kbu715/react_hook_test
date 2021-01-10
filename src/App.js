@@ -97,6 +97,7 @@ import FadeInApp from './hooks/useFadeIn';
 import NetworkApp from './hooks/useNetwork';
 import ScrollApp from './hooks/useScroll';
 import FullscrennApp from './hooks/useFullscreen';
+import AxiosApp from './hooks/useAxios';
 
 const App = () => {
   return (
@@ -111,6 +112,7 @@ const App = () => {
       <NetworkApp />
       <ScrollApp />
       <FullscrennApp />
+      <AxiosApp />
     </>
   );
 };
