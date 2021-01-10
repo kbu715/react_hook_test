@@ -96,6 +96,7 @@ import BeforeLeaveApp from './hooks/useBeforeLeave';
 import FadeInApp from './hooks/useFadeIn';
 import NetworkApp from './hooks/useNetwork';
 import ScrollApp from './hooks/useScroll';
+import FullscrennApp from './hooks/useFullscreen';
 
 const App = () => {
   return (
@@ -109,6 +110,7 @@ const App = () => {
       <FadeInApp />
       <NetworkApp />
       <ScrollApp />
+      <FullscrennApp />
     </>
   );
 };

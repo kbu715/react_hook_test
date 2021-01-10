@@ -5,7 +5,7 @@ const ScrollApp = () => {
   const { y } = useScroll();
 
   return (
-    <div style={{ height: '1000vh' }}>
+    <div style={{ height: '100vh' }}>
       <h1
         style={{
           position: 'fixed',
