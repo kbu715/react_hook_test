@@ -95,6 +95,7 @@ import PreventLeaveApp from './hooks/usePreventLeave';
 import BeforeLeaveApp from './hooks/useBeforeLeave';
 import FadeInApp from './hooks/useFadeIn';
 import NetworkApp from './hooks/useNetwork';
+import ScrollApp from './hooks/useScroll';
 
 const App = () => {
   return (
@@ -107,6 +108,7 @@ const App = () => {
       <BeforeLeaveApp />
       <FadeInApp />
       <NetworkApp />
+      <ScrollApp />
     </>
   );
 };
