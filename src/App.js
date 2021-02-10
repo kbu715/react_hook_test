@@ -99,6 +99,7 @@ import ScrollApp from './hooks/useScroll';
 import FullscrennApp from './hooks/useFullscreen';
 import AxiosApp from './hooks/useAxios';
 import DeviceApp from './hooks/useDeviceOrientation';
+import FaviconApp from './hooks/useFavicon';
 
 const App = () => {
   return (
@@ -115,6 +116,7 @@ const App = () => {
       <FullscrennApp />
       <AxiosApp />
       <DeviceApp />
+      <FaviconApp />
     </>
   );
 };
