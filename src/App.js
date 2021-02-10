@@ -98,6 +98,7 @@ import NetworkApp from './hooks/useNetwork';
 import ScrollApp from './hooks/useScroll';
 import FullscrennApp from './hooks/useFullscreen';
 import AxiosApp from './hooks/useAxios';
+import DeviceApp from './hooks/useDeviceOrientation';
 
 const App = () => {
   return (
@@ -113,6 +114,7 @@ const App = () => {
       <ScrollApp />
       <FullscrennApp />
       <AxiosApp />
+      <DeviceApp />
     </>
   );
 };
