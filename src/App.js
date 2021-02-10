@@ -102,6 +102,7 @@ import DeviceApp from './hooks/useDeviceOrientation';
 import FaviconApp from './hooks/useFavicon';
 import GeoApp from './hooks/useGeolocation';
 import KeyPressApp from './hooks/useKeyPress';
+import LSApp from './hooks/useLocalStorage';
 
 const App = () => {
   return (
@@ -121,6 +122,7 @@ const App = () => {
       <FaviconApp />
       <GeoApp />
       <KeyPressApp />
+      <LSApp />
     </>
   );
 };
