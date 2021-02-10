@@ -100,6 +100,7 @@ import FullscrennApp from './hooks/useFullscreen';
 import AxiosApp from './hooks/useAxios';
 import DeviceApp from './hooks/useDeviceOrientation';
 import FaviconApp from './hooks/useFavicon';
+import GeoApp from './hooks/useGeolocation';
 
 const App = () => {
   return (
@@ -117,6 +118,7 @@ const App = () => {
       <AxiosApp />
       <DeviceApp />
       <FaviconApp />
+      <GeoApp />
     </>
   );
 };
