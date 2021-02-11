@@ -103,11 +103,13 @@ import FaviconApp from './hooks/useFavicon';
 import GeoApp from './hooks/useGeolocation';
 import KeyPressApp from './hooks/useKeyPress';
 import LSApp from './hooks/useLocalStorage';
+import MouseApp from './hooks/useMousePosition';
+import OnlineApp from './hooks/useOnline';
 
 const App = () => {
   return (
     <>
-      <ClickApp />
+      {/* <ClickApp />
       <TabsApp />
       <TitleApp />
       <ConfirmApp />
@@ -123,6 +125,8 @@ const App = () => {
       <GeoApp />
       <KeyPressApp />
       <LSApp />
+      <MouseApp /> */}
+      <OnlineApp />
     </>
   );
 };
