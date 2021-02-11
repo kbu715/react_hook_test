@@ -105,6 +105,7 @@ import KeyPressApp from './hooks/useKeyPress';
 import LSApp from './hooks/useLocalStorage';
 import MouseApp from './hooks/useMousePosition';
 import OnlineApp from './hooks/useOnline';
+import LockScrollApp from './hooks/useLockScroll';
 
 const App = () => {
   return (
@@ -127,6 +128,7 @@ const App = () => {
       <LSApp />
       <MouseApp /> */}
       <OnlineApp />
+      <LockScrollApp />
     </>
   );
 };
