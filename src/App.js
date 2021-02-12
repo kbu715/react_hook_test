@@ -110,7 +110,7 @@ import LockScrollApp from './hooks/useLockScroll';
 const App = () => {
   return (
     <>
-      {/* <ClickApp />
+      <ClickApp />
       <TabsApp />
       <TitleApp />
       <ConfirmApp />
@@ -126,7 +126,7 @@ const App = () => {
       <GeoApp />
       <KeyPressApp />
       <LSApp />
-      <MouseApp /> */}
+      <MouseApp />
       <OnlineApp />
       <LockScrollApp />
     </>
