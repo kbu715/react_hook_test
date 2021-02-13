@@ -136,9 +136,9 @@ const App = () => {
       setMovieList(movies.movies)
     } catch(error){
       console.log(error)
-    } 
+    } finally {
       setLoading(false);
-    
+    }
   }
 
 
@@ -153,10 +153,10 @@ const App = () => {
       setMovieList(prev => [...prev, ...filteredMovies])
     }catch(error){
       console.log(error);
-    }
+    } finally {
       setPage(p => p + 1);
       setLoading(false);
-  
+    }
   }
 
   // 스크롤 이벤트 핸들러
@@ -206,8 +206,10 @@ const handleScroll = () => {
       <MouseApp />
       <OnlineApp />
       <LockScrollApp /> */}
-      <h2>INFINITE MOVIES / Page: {page}</h2>
-      {movieList.map(movie => <div style={{backgroundColor: '#efefef', boxShadow: `rgba(60, 64, 67, 0.3) 0px 1px 2px 0px, rgba(60, 64, 67, 0.15) 0px 2px 6px 2px`}} key={movie.id}><h3 style={{padding: 10}}>{movie.id}-{movie.title}</h3></div>)}
+      <div style={{display: 'flex', flexDirection: 'column', justifyContent: 'center', alignItems: 'center' ,textAlign: 'center'}}>
+        <h2>INFINITE MOVIES / Page: {page}</h2>
+        {movieList.map(movie => <div style={{width: '50%', marginBottom: 20 ,backgroundColor: '#efefef',boxShadow: `rgba(60, 64, 67, 0.3) 0px 1px 2px 0px, rgba(60, 64, 67, 0.15) 0px 2px 6px 2px`}} key={movie.id}><h3 style={{padding: 10}}>{movie.id}-{movie.title}</h3></div>)}
+      </div>
     </>
   );
 };
