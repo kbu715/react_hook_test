@@ -108,6 +108,7 @@ import OnlineApp from './hooks/useOnline';
 import LockScrollApp from './hooks/useLockScroll';
 import { getMovies } from './api'
 import axios from 'axios';
+import InfiniteScrollApp from './hooks/useInfiniteScroll';
 
 
 
@@ -115,75 +116,75 @@ import axios from 'axios';
 
 const App = () => {
 
-  const [page, setPage] = useState(1);
-  const [loading, setLoading] = useState(true);
-  const [movieList, setMovieList] = useState([]);
+//   const [page, setPage] = useState(1);
+//   const [loading, setLoading] = useState(true);
+//   const [movieList, setMovieList] = useState([]);
 
-  const api = axios.create({
-    baseURL: 'https://yts.mx/api/v2'
-  })
+//   const api = axios.create({
+//     baseURL: 'https://yts.mx/api/v2'
+//   })
   
-  const getMovies = (page) => 
-  api.get("/list_movies.json", {params: {page, limit: 50 } })
+//   const getMovies = (page) => 
+//   api.get("/list_movies.json", {params: {page, limit: 50 } })
   
 
 
-  const fetchData = async () => {
-    try {
-      setLoading(true);
-      const {data: {data: movies}} = await getMovies(page);
-      // console.log(movies.movies);
-      setMovieList(movies.movies)
-    } catch(error){
-      console.log(error)
-    } finally {
-      setLoading(false);
-    }
-  }
+//   const fetchData = async () => {
+//     try {
+//       setLoading(true);
+//       const {data: {data: movies}} = await getMovies(page);
+//       // console.log(movies.movies);
+//       setMovieList(movies.movies)
+//     } catch(error){
+//       console.log(error)
+//     } finally {
+//       setLoading(false);
+//     }
+//   }
 
 
-  const fetchMore = async () => {
+//   const fetchMore = async () => {
 
-    try {
-      console.log(page+1);
-      setLoading(true);
-      const {data: {data: movies}} = await getMovies(page+1);
-      const prevMoviesID = movieList.map(movie => movie.id)
-      const filteredMovies = movies.movies.filter((movie) => !prevMoviesID.includes(movie.id))
-      setMovieList(prev => [...prev, ...filteredMovies])
-    }catch(error){
-      console.log(error);
-    } finally {
-      setPage(p => p + 1);
-      setLoading(false);
-    }
-  }
+//     try {
+//       console.log(page+1);
+//       setLoading(true);
+//       const {data: {data: movies}} = await getMovies(page+1);
+//       const prevMoviesID = movieList.map(movie => movie.id)
+//       const filteredMovies = movies.movies.filter((movie) => !prevMoviesID.includes(movie.id))
+//       setMovieList(prev => [...prev, ...filteredMovies])
+//     }catch(error){
+//       console.log(error);
+//     } finally {
+//       setPage(p => p + 1);
+//       setLoading(false);
+//     }
+//   }
 
-  // 스크롤 이벤트 핸들러
-const handleScroll = () => {
-  let scrollHeight = Math.max(document.documentElement.scrollHeight, document.body.scrollHeight);
-  let scrollTop = Math.max(document.documentElement.scrollTop, document.body.scrollTop);
-  let clientHeight = document.documentElement.clientHeight;
-  if (scrollTop + clientHeight >= scrollHeight && loading === false) {
-    // 페이지 끝에 도달하면 추가 데이터를 받아온다
-    fetchMore();
-  }
- };
+//   // 스크롤 이벤트 핸들러
+// const handleScroll = () => {
+//   let scrollHeight = Math.max(document.documentElement.scrollHeight, document.body.scrollHeight);
+//   let scrollTop = Math.max(document.documentElement.scrollTop, document.body.scrollTop);
+//   let clientHeight = document.documentElement.clientHeight;
+//   if (scrollTop + clientHeight >= scrollHeight && loading === false) {
+//     // 페이지 끝에 도달하면 추가 데이터를 받아온다
+//     fetchMore();
+//   }
+//  };
 
-  useEffect(() => {
-    fetchData();
-  }, [])
+//   useEffect(() => {
+//     fetchData();
+//   }, [])
 
-  useEffect(() => {
-    window.addEventListener('scroll', handleScroll)
-    return () => {
-      window.removeEventListener('scroll', handleScroll)
-    }
-  })
+//   useEffect(() => {
+//     window.addEventListener('scroll', handleScroll)
+//     return () => {
+//       window.removeEventListener('scroll', handleScroll)
+//     }
+//   })
 
-  useEffect(()=>{
-    console.log('movieList',movieList)
-  }, [movieList])
+//   useEffect(()=>{
+//     console.log('movieList',movieList)
+//   }, [movieList])
 
   return (
     <>
@@ -206,11 +207,12 @@ const handleScroll = () => {
       <MouseApp />
       <OnlineApp />
       <LockScrollApp /> */}
-      <div style={{display: 'flex', flexDirection: 'column', justifyContent: 'center', alignItems: 'center' ,textAlign: 'center'}}>
+      {/* <div style={{display: 'flex', flexDirection: 'column', justifyContent: 'center', alignItems: 'center' ,textAlign: 'center'}}>
         <h2>INFINITE MOVIES / Page: {page}</h2>
         {movieList.map(movie => <div style={{width: '50%', marginBottom: 20 ,backgroundColor: '#efefef',boxShadow: `rgba(60, 64, 67, 0.3) 0px 1px 2px 0px, rgba(60, 64, 67, 0.15) 0px 2px 6px 2px`}} key={movie.id}><h3 style={{padding: 10}}>{movie.id}-{movie.title}</h3></div>)}
-      </div>
-    </>
+      </div> */}
+      <InfiniteScrollApp />
+      </>
   );
 };
 
