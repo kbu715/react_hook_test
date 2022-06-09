@@ -10,12 +10,10 @@ const DidMountEffect = (props) => {
   }
 
     useEffect(() => {
-        // you know what is this, don't you?
       console.log("first render !!!");
     }, []);
 
     useDidMountEffect(() => {
-        // react please run me if 'key' changes, but not on initial render
         console.log("It is called when state changes only")
     }, [state]);    
 
