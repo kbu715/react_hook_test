@@ -108,8 +108,8 @@ import OnlineApp from './hooks/useOnline';
 import LockScrollApp from './hooks/useLockScroll';
 import { getMovies } from './api'
 import axios from 'axios';
-import InfiniteScrollApp from './hooks/useInfiniteScroll';
-
+// import InfiniteScrollApp from './hooks/useInfiniteScroll';
+import DidMountEffect from './hooks/useDidMountEffect'
 
 
 
@@ -211,7 +211,8 @@ const App = () => {
         <h2>INFINITE MOVIES / Page: {page}</h2>
         {movieList.map(movie => <div style={{width: '50%', marginBottom: 20 ,backgroundColor: '#efefef',boxShadow: `rgba(60, 64, 67, 0.3) 0px 1px 2px 0px, rgba(60, 64, 67, 0.15) 0px 2px 6px 2px`}} key={movie.id}><h3 style={{padding: 10}}>{movie.id}-{movie.title}</h3></div>)}
       </div> */}
-      <InfiniteScrollApp />
+      {/* <InfiniteScrollApp /> */}
+      <DidMountEffect />
       </>
   );
 };
